@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #a6a6a6, #ffffff);
     height: 100vh;
     display: flex;
     align-items: center;
@@ -25,6 +25,84 @@ body {
     text-align: center;
     animation: fadeInUp 0.8s ease-out;
 }
+
+.left-mainpage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .left-mainpage .logo {
+    width: 180px;
+    margin-bottom: 20px;
+  }
+  
+  .left-mainpage p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+  }
+  
+  .account-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .account-buttons a {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background-color: #667eea;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .account-buttons a:nth-child(2) {
+    background-color: #667eea;
+  }
+  
+  .account-buttons a:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  .right-mainpage {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .right-mainpage img {
+    width: 150px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .right-mainpage {
+      position: static;
+      transform: none;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 30px;
+    }
+  
+    .right-mainpage img {
+      width: 100px;
+    }
+  }
 
 /* Fade in animation */
 @keyframes fadeInUp {
@@ -74,7 +152,7 @@ body {
     margin-top: 1rem;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    transition: 0.3s, transform 0.2s;
 }
 
 /* Button hover and active effects */

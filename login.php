@@ -29,12 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Social Media</title>
+    <title>Login - WireFrame</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="login-container">
-        <h2>Login to Social Media</h2>
+        <h2>Login to WireFrame</h2>
         <?php 
             if (isset($error)) { 
                 echo '<p class="error">' . $error . '</p>'; 

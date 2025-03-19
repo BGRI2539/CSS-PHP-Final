@@ -3,26 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Account - Social Media</title>
+  <meta name="description" content="wireFrame - Share your ultimate desk setup!">
+  <title>WireFrame - Welcome</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <div class="login-container">
-    <h2>Create Account</h2>
-    <?php
-      // Optional: Display error messages if registration processing sets an error.
-      if (isset($error)) {
-          echo '<p class="error">' . htmlspecialchars($error) . '</p>';
-      }
-    ?>
-    <form action="register.php" method="POST">
-      <input type="text" name="username" placeholder="Username" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-      <button type="submit">Create Account</button>
-    </form>
-    <p>Already have an account? <a href="login.php">Login here</a>.</p>
+
+  <div class="left-mainpage">
+    <img class="logo" src="./img/IconOnly_Transparent_NoBuffer.png" alt="Wire Frame Main Page Logo" class="logo">
+    <h2>WireFrame</h2>
+    <p>The Blueprint For Your Perfect Setup!</p>
+    <div class=account-buttons>
+      <a  href=create.php>Create an Account</a>
+      <a href=login.php>Log in</a>
+    </div>  
+  </div>
+  <div class="right-mainpage">
+    <img class="iphone1" src="./img/iphone1.png" alt="Iphone 1 Main Page">
+    <img class="iphone2" src="./img/iphone2.png" alt="Iphone 2 Main Page">
   </div>
 </body>
 </html>
