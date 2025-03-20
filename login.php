@@ -5,8 +5,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sample user credentials for demonstration
     $users = [
-        "user1" => "password123",
-        "user2" => "mypassword"
+        "admin" => "root",
     ];
     
     $username = $_POST["username"];
@@ -16,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($users[$username]) && $users[$username] === $password) {
         $_SESSION["user"] = $username;
         // Redirect to a dashboard or another page after successful login
-        header("Location: dashboard.php");
+        header("Location: home.php");
         exit;
     } else {
         $error = "Invalid username or password.";

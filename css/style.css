@@ -12,9 +12,9 @@ body {
   height: 100vh;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, hsl(0, 2%, 37%), #ffffff);
+  background: linear-gradient(to right, hwb(288 1% 0%), hsl(123, 100%, 50%));
   /* Increase base font size for larger text overall */
-  font-size: 18px; 
+  font-size: 10px; 
 }
 
 /* Left Section */
@@ -25,29 +25,29 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 30px;
+  padding: 3px;
 }
 
 .left-mainpage .logo {
   /* Increased logo size */
-  width: 300px; 
+  width: 50%; 
   margin-bottom: 15px;
 }
 
 .left-mainpage h2 {
   /* Larger heading font size */
-  font-size: 90px;
+  font-size: 9em;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
+  letter-spacing: 0.15em;
+  margin-bottom: .02%;
 }
 
 .left-mainpage p {
   /* Slightly larger paragraph font */
-  font-size: 54px;
+  font-size: 6em;
   color: hsl(0, 0%, 0%);
-  margin-bottom: 25px;
+  margin-bottom: 2.2%;
 }
 
 /* Account Buttons */
@@ -101,21 +101,6 @@ body {
   right: 38%;
   z-index: 1;
   rotate: 4deg;
-}
-
-/* Responsive Design */
-@media (max-width: 900px) {
-  body {
-      flex-direction: column;
-  }
-
-  .right-mainpage {
-      display: none; /* Hide phones on smaller screens */
-  }
-
-  .left-mainpage {
-      width: 100%;
-  }
 }
 
 /* Heading Styling */
