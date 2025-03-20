@@ -1,166 +1,204 @@
-/* Reset and base styles */
+/* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
+/* Full-screen layout */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #a6a6a6, #ffffff);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, hsl(0, 2%, 37%), #ffffff);
+  /* Increase base font size for larger text overall */
+  font-size: 18px; 
 }
 
-/* Container styling (used for both login and registration) */
-.login-container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    animation: fadeInUp 0.8s ease-out;
-}
-
+/* Left Section */
 .left-mainpage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.left-mainpage .logo {
+  /* Increased logo size */
+  width: 300px; 
+  margin-bottom: 15px;
+}
+
+.left-mainpage h2 {
+  /* Larger heading font size */
+  font-size: 90px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.left-mainpage p {
+  /* Slightly larger paragraph font */
+  font-size: 54px;
+  color: hsl(0, 0%, 0%);
+  margin-bottom: 25px;
+}
+
+/* Account Buttons */
+.account-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.account-buttons a {
+  display: block;
+  text-decoration: none;
+  background-color: #4da6ff;
+  color: white;
+  padding: 20px 80px; 
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.account-buttons a:hover {
+  background-color: #3399ff;
+  transform: scale(1.05);
+}
+
+/* Right Section */
+.right-mainpage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 30px;
+}
+
+/* iPhone Images (increased sizes) */
+.iphone1 {
+  width: 625px;
+  position: relative;
+  z-index: 2;
+  right: 30%;
+  bottom: 50%;
+  rotate: -4deg;
+}
+
+.iphone2 {
+  width: 500px;
+  position: absolute;
+  bottom: -20px;
+  right: 38%;
+  z-index: 1;
+  rotate: 4deg;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  body {
+      flex-direction: column;
   }
-  
-  .left-mainpage .logo {
-    width: 180px;
-    margin-bottom: 20px;
-  }
-  
-  .left-mainpage p {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
-  }
-  
-  .account-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .account-buttons a {
-    display: block;
-    width: 200px;
-    margin: 0 auto;
-    padding: 15px 30px;
-    background-color: #667eea;
-    border-radius: 30px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .account-buttons a:nth-child(2) {
-    background-color: #667eea;
-  }
-  
-  .account-buttons a:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-  }
-  
+
   .right-mainpage {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .right-mainpage img {
-    width: 150px;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  @media screen and (max-width: 768px) {
-    .right-mainpage {
-      position: static;
-      transform: none;
-      flex-direction: row;
-      justify-content: center;
-      margin-top: 30px;
-    }
-  
-    .right-mainpage img {
-      width: 100px;
-    }
+      display: none; /* Hide phones on smaller screens */
   }
 
-/* Fade in animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  .left-mainpage {
+      width: 100%;
+  }
 }
 
-/* Heading styling */
+/* Heading Styling */
 .login-container h2 {
-    margin-bottom: 1.5rem;
-    color: #333;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* Input field styling (now includes type email) */
-.login-container form input[type="text"],
-.login-container form input[type="password"],
-.login-container form input[type="email"] {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+/* Error Message Styling */
+.error {
+  color: #ff3333;
+  margin-bottom: 1rem;
 }
 
-/* Input focus effects */
-.login-container form input:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
-    outline: none;
-}
-
-/* Button styling */
+.login-container form input,
 .login-container form button {
-    background: #667eea;
-    color: #fff;
-    padding: 12px;
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    margin-top: 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s, transform 0.2s;
+  display: block;
+  width: 90%;
+  max-width: 350px;    
+  margin: 10px auto;
 }
 
-/* Button hover and active effects */
+/* Form Input Styling */
+.login-container form input[type="text"],
+.login-container form input[type="email"],
+.login-container form input[type="password"] {
+  align-items: right;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Input Focus Effects */
+.login-container form input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
+  outline: none;
+}
+
+/* Button Styling */
+.login-container form button {
+  margin-top: 10%;
+  align-items: center;
+  background-color: #4da6ff;
+  color: #fff;
+  padding: 15px 60px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Button Hover Effects */
 .login-container form button:hover {
-    background: #556cd6;
-    transform: translateY(-2px);
+  background-color: #3399ff;
+  transform: scale(1.05);
 }
 
-.login-container form button:active {
-    transform: translateY(0);
+/* Link Styling */
+.login-container p {
+  margin-top: 1rem;
+  font-size: 16px;
 }
+
+.login-container p a {
+  text-decoration: none;
+  color: #667eea;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.login-container p a:hover {
+  color: #3399ff;
+}
+
