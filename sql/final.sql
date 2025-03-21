@@ -1,7 +1,8 @@
-CREATE TABLE users(
-    userId int not null auto increment primary key,
-    firstName varchar(255) not null,
-    email varchar(255) not null,
-    username varchar(255) not null,
-    password varchar(255) not null,
+CREATE TABLE users (
+    userId INT NOT NULL AUTO_INCREMENT,
+    firstName VARCHAR(255),
+    email VARCHAR(255) not null,
+    username VARCHAR(255) not null,
+    password VARCHAR(255) not null,
+    PRIMARY KEY (userId)
 );

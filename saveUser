@@ -4,8 +4,8 @@
   require_once './database.php';
 
   // variables
-  $first_name = $_POST['firstName'];
-  $email = $_POST['eamil'];
+  $firstName = $_POST['firstName'];
+  $email = $_POST['email'];
   $username = $_POST['username'];
   $password = $_POST['password'];
   $confirm = $_POST['confirm'];
@@ -31,11 +31,13 @@
 	$password = hash('sha512', $password);
 
 	// set up our sql
-	$sql = "INSERT INTO SiteData (firstName, email, username, password) VALUES ('$firstN', '$email', '$username', '$password')";
+	$sql = "INSERT INTO users (firstName, email, username, password) VALUES ('$firstName', '$email', '$username', '$password')";
 	$conn->exec($sql);
-	echo "<h3>User Saved</h3>";
+	echo "<h1>User Saved</h1>";
 	$conn = null;
   }
+
+  header('location: home.php');
 
 ?>
 	

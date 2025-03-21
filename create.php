@@ -17,12 +17,12 @@
           echo '<p class="error">' . htmlspecialchars($error) . '</p>';
       }
     ?>
-    <form action="register.php" method="POST">
+    <form action="saveUser.php" method="POST">
       <input type="text" name="firstName" placeholder="First Name">
-      <input type="text" name="username" placeholder="Username" required>
       <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="username" placeholder="Username" required>
       <input type="password" name="password" placeholder="Password" required>
-      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+      <input type="password" name="confirm" placeholder="Confirm Password" required>
       <button type="submit">Create Account</button>
     </form>
     <p>Already have an account? <a href="login.php">Login Here</a>.</p>
