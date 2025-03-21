@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create Account - Social Media</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
   <div class="login-container">
     <h2>Create Account</h2>
@@ -16,6 +18,7 @@
       }
     ?>
     <form action="register.php" method="POST">
+      <input type="text" name="firstName" placeholder="First Name">
       <input type="text" name="username" placeholder="Username" required>
       <input type="email" name="email" placeholder="Email Address" required>
       <input type="password" name="password" placeholder="Password" required>
@@ -25,4 +28,5 @@
     <p>Already have an account? <a href="login.php">Login Here</a>.</p>
   </div>
 </body>
+
 </html>

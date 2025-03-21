@@ -1,0 +1,41 @@
+<?php
+
+  // add lesson code
+  require_once './database.php';
+
+  // variables
+  $first_name = $_POST['firstName'];
+  $email = $_POST['eamil'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $confirm = $_POST['confirm'];
+
+  // validate inputs
+  $ok = true;
+
+  // check
+  if(empty($email)){
+	$ok = false;
+	echo '<p>Email cannot be empty</p>';
+  }
+  if(empty($username)){
+	$ok = false;
+	echo '<p>Username cannot be empty</p>';
+  }
+  if((empty($password)) || ($password != $confirm)){
+	$ok = false;
+	echo '<p>Password Invalid</p>';
+  }
+  if($ok){
+	// now we need to hash out password
+	$password = hash('sha512', $password);
+
+	// set up our sql
+	$sql = "INSERT INTO SiteData (firstName, email, username, password) VALUES ('$firstN', '$email', '$username', '$password')";
+	$conn->exec($sql);
+	echo "<h3>User Saved</h3>";
+	$conn = null;
+  }
+
+?>
+	
