@@ -7,7 +7,7 @@
   <title>WireFrame - Welcome</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body class="index-page">
 
   <div class="left-mainpage">
     <img class="logo" src="./img/IconOnly_Transparent_NoBuffer.png" alt="Wire Frame Main Page Logo" class="logo">
