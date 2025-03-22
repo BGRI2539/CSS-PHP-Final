@@ -1,28 +1,50 @@
-/* ================================= */
-/* General Reset */
-/* ================================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
-
-/* ================================= */
-/* Full-Screen Layout */
-/* ================================= */
+/* =================================
+/ GENERAL STYLES
+/ ================================= */
 body {
-  display: flex;
-  margin-top: 5%;
-  height: 100%;
+  
   align-items: center;
   justify-content: center;
-  background: #F0C27B;
-  background: -webkit-linear-gradient(to right,#F0C27B, #4B1248);
-  background: linear-gradient(to right,#F0C27B, #4B1248);
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to right, #F0C27B, #4B1248);
   font-size: 10px;
 }
 
+.index-page {
+  display: flex;
+}
+
+html{
+  overflow-y: scroll;
+}
+  
+/* =================================
+/ FONT IMPORTS
+/ ================================= */
+@font-face {
+  font-family: 'Gemina';
+  src: url('../fonts/gemina.woff') format('truetype');
+}
+  
+@font-face {
+  font-family: 'TT Limes Slab';
+  src: url('../fonts/TTLimesSlab-Regular.otf') format('truetype');
+}
+  
+/* =================================
+/ TYPOGRAPHY
+/ ================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Gemina', sans-serif;
+}
+  
+p, a, li, figcaption, label {
+  font-family: "TT Limes Slab", sans-serif;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+  
 /* ================================= */
 /* Left Section */
 /* ================================= */
@@ -35,49 +57,23 @@ body {
   text-align: center;
   padding: 3px;
 }
-
+  
 .left-mainpage .logo {
   width: 40%;
   margin-bottom: 15px;
 }
-
+  
 .left-mainpage h2 {
   font-size: 8em;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: .02%;
 }
-
+  
 .left-mainpage p {
   font-size: 4em;
   color: hsl(0, 0%, 0%);
   margin-bottom: 2.2%;
-}
-
-/* ================================= */
-/* Account Buttons */
-/* ================================= */
-.account-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.account-buttons a {
-  display: block;
-  text-decoration: none;
-  background-color: #4da6ff;
-  color: white;
-  padding: 20px 80px;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
-}
-
-.account-buttons a:hover {
-  background-color: #3399ff;
-  transform: scale(1.05);
 }
 
 /* ================================= */
@@ -103,7 +99,7 @@ body {
   bottom: 50%;
   rotate: -4deg;
 }
-
+  
 .iphone2 {
   width: 60%;
   position: absolute;
@@ -112,10 +108,229 @@ body {
   z-index: 1;
   rotate: 4deg;
 }
+  
 
-/* ================================= */
-/* Login Section */
-/* ================================= */
+/* =================================
+/ HEADER NAVIGATION
+/ ================================= */
+.default-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #fffffb;
+  padding: 1% 3%;
+  z-index: 2;
+  position: relative;
+}
+  
+.logo-container img {
+  max-height: 80px;
+  width: auto;
+}
+  
+.header-right-menu{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 100px;
+  margin: 0;
+  padding: 0;
+  margin-right: 40px;
+}
+  
+header li {
+  position: relative;
+}
+  
+header li a {
+  color: #0e0e0e;
+  border-bottom: solid 2px transparent;
+  transition: all 0.25s linear;
+  font-size: 1.8em;
+  text-decoration: none;
+}
+  
+header li a:hover {
+  border-bottom: solid 2px #cf2e2e;
+}
+
+
+
+  
+/* =================================
+/ MY ACCOUNT DROPDOWN MENU
+/ ================================= */
+.account-label {
+  cursor: pointer;
+  font-size: 1.8em;
+  user-select: none;
+  display: block;
+}
+  
+.account-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fffffb;
+  border: 1px solid #ddd;
+  list-style: none;
+  padding: 0;
+  width: 200px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+  
+.account-dropdown li a {
+  font-size: 1.4em;
+  padding: 10px 20px;
+  display: block;
+  width: 100%;
+}
+  
+.account-dropdown li a:hover {
+  background-color: #f5f5f5;
+  border-bottom: none;
+}
+  
+#account-burger {
+  display: none;
+}
+  
+#account-burger:checked + .account-dropdown {
+  max-height: 500px;
+  opacity: 1;
+  padding: 10px 0;
+}
+  
+.header-right-menu li:hover .account-dropdown {
+  max-height: 500px;
+  opacity: 1;
+  padding: 10px 0;
+}
+  
+/* =================================
+/ SCROLLED SIDE MENU (AFTER-SCROLL HEADER)
+/ ================================= */
+.scrolled-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80px;
+  background-color: #fffffb;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none; /* prevent interaction when hidden */
+  display: flex; /* always rendered */
+}
+
+body.scrolledHeader .scrolled-header {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto; /* allow clicks when visible */
+}
+  
+.scrolled-header a {
+  margin: 15px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+  
+.scrolled-header a img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+  
+.scrolled-header a:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+  
+.scrolled-header .top-icons,
+.scrolled-header .bottom-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+  
+.fullbody { margin: 0; }
+  
+/* =================================
+/ POST GRID
+/ ================================= */
+.post-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+  
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  color: #555;
+}
+  
+/* =================================
+/ ACCOUNT BUTTONS
+/ ================================= */
+.account-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+  
+.account-buttons a {
+  display: block;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%);
+  color: white;
+  padding: 20px 80px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  margin: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+}
+  
+.account-buttons a:hover {
+  background-position: right center;
+  transform: scale(1.05);
+  color: #fff;
+}
+  
+/* =================================
+/ LOGIN FORM
+/ ================================= */
 .login-container h2 {
   font-size: 40px;
   text-align: center;
@@ -124,16 +339,12 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
-/* Error Message Styling */
+  
 .error {
   color: #ff3333;
   margin-bottom: 1rem;
 }
-
-/* ================================= */
-/* Form Elements */
-/* ================================= */
+  
 .login-container form input,
 .login-container form button {
   display: block;
@@ -141,65 +352,31 @@ body {
   max-width: 350px;
   margin: 10px auto;
 }
-
-/* Form Input Styling */
-.login-container form input[type="text"],
-.login-container form input[type="email"],
-.login-container form input[type="password"] {
-  align-items: right;
+  
+.login-container form input {
   text-align: center;
-  width: 100%;
   padding: 15px;
-  margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 8px;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
-
-/* Input Focus Effects */
+  
 .login-container form input:focus {
   border-color: #667eea;
   box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
-  outline: none;
 }
-
-/* Button Styling */
+  
 .login-container form button {
-  margin-top: 10%;
-  align-items: center;
   background-color: #4da6ff;
   color: #fff;
   padding: 15px 60px;
-  border: none;
   border-radius: 30px;
   font-size: 18px;
   font-weight: bold;
-  cursor: pointer;
-  margin-top: 1rem;
   transition: background 0.3s, transform 0.2s;
 }
-
-/* Button Hover Effects */
+  
 .login-container form button:hover {
   background-color: #3399ff;
   transform: scale(1.05);
-}
-
-/* ================================= */
-/* Links Styling */
-/* ================================= */
-.login-container p {
-  margin-top: 1rem;
-  font-size: 16px;
-}
-
-.login-container p a {
-  text-decoration: none;
-  color: #667eea;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.login-container p a:hover {
-  color: #3399ff;
 }
