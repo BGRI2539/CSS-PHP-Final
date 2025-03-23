@@ -14,8 +14,8 @@
     <h2>WireFrame</h2>
     <p>The Blueprint For Your Perfect Setup!</p>
     <div class=account-buttons>
-      <a  href=create.php>Create an Account</a>
-      <a href=login.php>Log in</a>
+      <a  href=./backEnd/create.php>Create an Account</a>
+      <a href=./backEnd/login.php>Log in</a>
     </div>  
   </div>
   <div class="right-mainpage">

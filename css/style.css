@@ -302,8 +302,10 @@ body.scrolledHeader .scrolled-header {
 .account-buttons {
   display: flex;
   flex-direction: column;
+  align-items: center; 
   gap: 20px;
 }
+
   
 .account-buttons a {
   display: block;
@@ -334,8 +336,9 @@ body.scrolledHeader .scrolled-header {
 .login-container h2 {
   font-size: 40px;
   text-align: center;
+  align-items: center;
   margin-bottom: 1rem;
-  color: #333;
+  color: #333333;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -379,4 +382,8 @@ body.scrolledHeader .scrolled-header {
 .login-container form button:hover {
   background-color: #3399ff;
   transform: scale(1.05);
+}
+
+.login-container p {
+  text-align: center;
 }
