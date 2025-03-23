@@ -3,7 +3,7 @@
 
     // If a user is already logged in, redirect them to the home page.
     if (isset($_SESSION['userId'])) {
-        header("Location: home.php");
+        header("Location: ../frontEnd/home.php");
         exit;
     }
 ?>

@@ -18,7 +18,7 @@
             // take the user id from the database and store it in the session variable
             $_SESSION['user_id'] = $row['user_id'];
             //redirect the user
-            Header('Location: home.php');
+            Header('Location: ../frontEnd/home.php');
         }
     } else{
         echo "Invalid Login";
