@@ -18,47 +18,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="../js/scripts.js"></script>
   <link rel="stylesheet" href="../css/style.css" />
-  <style>
-    /* Container for posts with a responsive grid layout */
-    .post-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    /* Each post card with a simple border and shadow */
-    .post-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-    }
-    /* Post title styling */
-    .post-card h2 {
-      margin: 0;
-      padding: 10px;
-      background: #f7f7f7;
-      text-align: center;
-      font-size: 1.2rem;
-    }
-    /* Image container with fixed height and hidden overflow */
-    .post-card-image {
-      width: 100%;
-      height: 300px; /* Adjust height as needed */
-      overflow: hidden;
-      position: relative;
-    }
-    /* Ensure the image fills the container without distortion */
-    .post-card-image img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover;
-      display: block;
-    }
-  </style>
 </head>
 <body class="home-page">
   <header>

@@ -42,8 +42,27 @@
         // Securely hash the password 
         $password = hash('sha512', $password);
 
-        // Insert the user data into the database 
-        $sql = "INSERT INTO users (firstName, email, username, password) VALUES ('$firstName', '$email', '$username', '$password')";
+        // Check if a profile picture (avatar) was uploaded
+        if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] == 0) {
+            // Optionally validate file type (allow only JPEG, PNG, or GIF)
+            $allowedTypes = array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF);
+            $detectedType = exif_imagetype($_FILES['profilePicture']['tmp_name']);
+            if (in_array($detectedType, $allowedTypes)) {
+                $avatar = file_get_contents($_FILES['profilePicture']['tmp_name']);
+            } else {
+                $avatar = null;
+            }
+        } else {
+            $avatar = null;
+        }
+
+        // If an avatar was provided, include it in the INSERT query
+        if($avatar !== null) {
+            $avatar_escaped = $conn->quote($avatar);
+            $sql = "INSERT INTO users (firstName, email, username, password, avatar) VALUES ('$firstName', '$email', '$username', '$password', $avatar_escaped)";
+        } else {
+            $sql = "INSERT INTO users (firstName, email, username, password) VALUES ('$firstName', '$email', '$username', '$password')";
+        }
 
         $conn -> exec($sql);
 

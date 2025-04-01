@@ -8,6 +8,7 @@ CREATE TABLE users (
     email VARCHAR(255) not null,
     username VARCHAR(255) not null,
     password VARCHAR(255) not null,
+    avatar MEDIUMBLOB not null,
     PRIMARY KEY (userId)
 );
 
