@@ -2,6 +2,7 @@
 / GENERAL STYLES
 / ================================= */
 body {
+  
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -14,10 +15,10 @@ body {
   display: flex;
 }
 
-html {
+html{
   overflow-y: scroll;
 }
-
+  
 /* =================================
 / FONT IMPORTS
 / ================================= */
@@ -25,19 +26,19 @@ html {
   font-family: 'Gemina';
   src: url('../fonts/gemina.woff') format('truetype');
 }
-
+  
 @font-face {
   font-family: 'TT Limes Slab';
   src: url('../fonts/TTLimesSlab-Regular.otf') format('truetype');
 }
-
+  
 /* =================================
 / TYPOGRAPHY
 / ================================= */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Gemina', sans-serif;
 }
-
+  
 p, a, li, figcaption, label {
   font-family: "TT Limes Slab", sans-serif;
   font-size: 1.2em;
@@ -79,6 +80,71 @@ p, a, li, figcaption, label {
   transform: scale(1.05);
 }
 
+  
+/* ================================= */
+/* Left Section */
+/* ================================= */
+.left-mainpage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3px;
+}
+  
+.left-mainpage .logo {
+  width: 40%;
+  margin-bottom: 15px;
+}
+  
+.left-mainpage h2 {
+  font-size: 8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: .02%;
+}
+  
+.left-mainpage p {
+  font-size: 4em;
+  color: hsl(0, 0%, 0%);
+  margin-bottom: 2.2%;
+}
+
+/* ================================= */
+/* Right Section */
+/* ================================= */
+.right-mainpage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 30px;
+}
+
+/* ================================= */
+/* iPhone Images */
+/* ================================= */
+.iphone1 {
+  width: 70%;
+  position: relative;
+  z-index: 2;
+  right: 15%;
+  bottom: 50%;
+  rotate: -4deg;
+}
+  
+.iphone2 {
+  width: 60%;
+  position: absolute;
+  bottom: -7%;
+  right: 15%;
+  z-index: 1;
+  rotate: 4deg;
+}
+  
 
 /* =================================
 / HEADER NAVIGATION
@@ -161,6 +227,9 @@ p, a, li, figcaption, label {
   font-weight: bold;
 }
 
+
+
+  
 /* =================================
 / MY ACCOUNT DROPDOWN MENU
 / ================================= */
@@ -222,9 +291,9 @@ p, a, li, figcaption, label {
   padding: 10px 0;
   pointer-events: auto;
 }
-
+  
 /* =================================
-/ SCROLLED SIDE MENU
+/ SCROLLED SIDE MENU (AFTER-SCROLL HEADER)
 / ================================= */
 .scrolled-header {
   position: fixed;
@@ -237,37 +306,37 @@ p, a, li, figcaption, label {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
+  box-shadow: -2px 0 8px rgba(0,0,0,0.05);
   z-index: 9999;
   opacity: 0;
   transform: translateX(100px);
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-  display: flex;
+  pointer-events: none; /* prevent interaction when hidden */
+  display: flex; /* always rendered */
 }
 
 body.scrolledHeader .scrolled-header {
   opacity: 1;
   transform: translateX(0);
-  pointer-events: auto;
+  pointer-events: auto; /* allow clicks when visible */
 }
-
+  
 .scrolled-header a {
   margin: 15px 0;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
-
+  
 .scrolled-header a img {
   width: 40px;
   height: 40px;
   object-fit: contain;
 }
-
+  
 .scrolled-header a:hover {
   transform: scale(1.1);
   opacity: 0.8;
 }
-
+  
 .scrolled-header .top-icons,
 .scrolled-header .bottom-icons {
   display: flex;
@@ -275,11 +344,9 @@ body.scrolledHeader .scrolled-header {
   align-items: center;
   gap: 25px;
 }
-
-.fullbody {
-  margin: 0;
-}
-
+  
+.fullbody { margin: 0; }
+  
 /* =================================
 / POST GRID
 / ================================= */
@@ -291,33 +358,32 @@ body.scrolledHeader .scrolled-header {
   max-width: 1000px;
   margin: 0 auto;
 }
-
+  
 .post-card {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   height: 300px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 1.5em;
   color: #555;
-  text-align: center;
 }
-
+  
 /* =================================
 / ACCOUNT BUTTONS
 / ================================= */
 .account-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
   gap: 20px;
 }
 
+  
 .account-buttons a {
   display: block;
   text-decoration: none;
@@ -334,13 +400,13 @@ body.scrolledHeader .scrolled-header {
   background-size: 200% auto;
   box-shadow: 0 0 20px #eee;
 }
-
+  
 .account-buttons a:hover {
   background-position: right center;
   transform: scale(1.05);
   color: #fff;
 }
-
+  
 /* =================================
 / LOGIN FORM
 / ================================= */
@@ -353,12 +419,12 @@ body.scrolledHeader .scrolled-header {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
+  
 .error {
   color: #ff3333;
   margin-bottom: 1rem;
 }
-
+  
 .login-container form input,
 .login-container form button {
   display: block;
@@ -366,7 +432,7 @@ body.scrolledHeader .scrolled-header {
   max-width: 350px;
   margin: 10px auto;
 }
-
+  
 .login-container form input {
   text-align: center;
   padding: 15px;
@@ -374,12 +440,12 @@ body.scrolledHeader .scrolled-header {
   border-radius: 8px;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
-
+  
 .login-container form input:focus {
   border-color: #667eea;
   box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
 }
-
+  
 .login-container form button {
   background-color: #4da6ff;
   color: #fff;
@@ -389,7 +455,7 @@ body.scrolledHeader .scrolled-header {
   font-weight: bold;
   transition: background 0.3s, transform 0.2s;
 }
-
+  
 .login-container form button:hover {
   background-color: #3399ff;
   transform: scale(1.05);
@@ -398,3 +464,88 @@ body.scrolledHeader .scrolled-header {
 .login-container p {
   text-align: center;
 }
+
+.post-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto;    /* Center the grid in the viewport */
+}
+
+/* Individual post card styling */
+.post-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif; /* Example font; adjust as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header at the top of the post card */
+.post-card-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+/* User avatar (replace with your own user images) */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Username next to the avatar */
+.username {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* The "..." menu icon to the right */
+.more-options {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/* Image container with a fixed height */
+.post-card-image {
+  width: 100%;
+  height: 300px; /* Adjust this height as needed */
+  overflow: hidden;
+}
+
+/* The image fills the container, keeping its aspect ratio */
+.post-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Actions row at the bottom of the card */
+.post-card-actions {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+/* Icons in the actions row */
+.action-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+/* Bookmark icon aligns to the right */
+.action-icon.bookmark {
+  margin-left: auto;
+}
+
