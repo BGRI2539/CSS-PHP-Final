@@ -2,7 +2,6 @@
 / GENERAL STYLES
 / ================================= */
 body {
-  
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -15,10 +14,10 @@ body {
   display: flex;
 }
 
-html{
+html {
   overflow-y: scroll;
 }
-  
+
 /* =================================
 / FONT IMPORTS
 / ================================= */
@@ -26,89 +25,60 @@ html{
   font-family: 'Gemina';
   src: url('../fonts/gemina.woff') format('truetype');
 }
-  
+
 @font-face {
   font-family: 'TT Limes Slab';
   src: url('../fonts/TTLimesSlab-Regular.otf') format('truetype');
 }
-  
+
 /* =================================
 / TYPOGRAPHY
 / ================================= */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Gemina', sans-serif;
 }
-  
+
 p, a, li, figcaption, label {
   font-family: "TT Limes Slab", sans-serif;
   font-size: 1.2em;
   text-decoration: none;
 }
-  
-/* ================================= */
-/* Left Section */
-/* ================================= */
-.left-mainpage {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+/* =================================
+/ EXPLORE PAGE STYLES
+/ ================================= */
+.explore-wrapper {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.explore-title {
+  font-size: 3em;
+  color: white;
   text-align: center;
-  padding: 3px;
-}
-  
-.left-mainpage .logo {
-  width: 40%;
-  margin-bottom: 15px;
-}
-  
-.left-mainpage h2 {
-  font-size: 8em;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: .02%;
-}
-  
-.left-mainpage p {
-  font-size: 4em;
-  color: hsl(0, 0%, 0%);
-  margin-bottom: 2.2%;
+  margin-bottom: 30px;
+  font-family: 'Gemina', sans-serif;
 }
 
-/* ================================= */
-/* Right Section */
-/* ================================= */
-.right-mainpage {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 30px;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-/* ================================= */
-/* iPhone Images */
-/* ================================= */
-.iphone1 {
-  width: 70%;
-  position: relative;
-  z-index: 2;
-  right: 15%;
-  bottom: 50%;
-  rotate: -4deg;
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
-  
-.iphone2 {
-  width: 60%;
-  position: absolute;
-  bottom: -7%;
-  right: 15%;
-  z-index: 1;
-  rotate: 4deg;
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
 }
-  
+
 
 /* =================================
 / HEADER NAVIGATION
@@ -123,13 +93,13 @@ p, a, li, figcaption, label {
   z-index: 2;
   position: relative;
 }
-  
+
 .logo-container img {
   max-height: 80px;
   width: auto;
 }
-  
-.header-right-menu{
+
+.header-right-menu {
   display: flex;
   align-items: center;
   list-style: none;
@@ -138,26 +108,59 @@ p, a, li, figcaption, label {
   padding: 0;
   margin-right: 40px;
 }
-  
-header li {
+
+.header-right-menu li {
   position: relative;
 }
-  
-header li a {
+
+/* Home & Explore special effect */
+.header-right-menu li a[href*="Home"],
+.header-right-menu li a[href*="Explore"] {
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.header-right-menu li a[href*="Home"]:hover,
+.header-right-menu li a[href*="Explore"]:hover {
+  background-color: #ff4b2b;
+  color: #fff;
+  transform: scale(1.1) rotate(-2deg);
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* My Account original underline effect */
+.header-right-menu li a {
   color: #0e0e0e;
-  border-bottom: solid 2px transparent;
-  transition: all 0.25s linear;
   font-size: 1.8em;
   text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  transition: font-weight 0.2s ease;
 }
-  
-header li a:hover {
-  border-bottom: solid 2px #cf2e2e;
+
+.header-right-menu li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
 }
 
+.header-right-menu li a:hover::after {
+  width: 100%;
+}
 
+.header-right-menu li a:hover {
+  font-weight: bold;
+}
 
-  
 /* =================================
 / MY ACCOUNT DROPDOWN MENU
 / ================================= */
@@ -167,10 +170,10 @@ header li a:hover {
   user-select: none;
   display: block;
 }
-  
+
 .account-dropdown {
   position: absolute;
-  top: 40px;
+  top: 100%;
   right: 0;
   background: #fffffb;
   border: 1px solid #ddd;
@@ -185,38 +188,43 @@ header li a:hover {
   transition: max-height 0.4s ease, opacity 0.4s ease;
   display: flex;
   flex-direction: column;
+  pointer-events: none;
 }
-  
+
 .account-dropdown li a {
   font-size: 1.4em;
   padding: 10px 20px;
   display: block;
   width: 100%;
 }
-  
+
 .account-dropdown li a:hover {
   background-color: #f5f5f5;
   border-bottom: none;
 }
-  
+
 #account-burger {
   display: none;
 }
-  
+
 #account-burger:checked + .account-dropdown {
   max-height: 500px;
   opacity: 1;
   padding: 10px 0;
+  pointer-events: auto;
 }
-  
-.header-right-menu li:hover .account-dropdown {
+
+.header-right-menu li:hover .account-dropdown,
+.header-right-menu li:has(.account-label:hover) .account-dropdown,
+.header-right-menu li:hover .account-label + .account-dropdown {
   max-height: 500px;
   opacity: 1;
   padding: 10px 0;
+  pointer-events: auto;
 }
-  
+
 /* =================================
-/ SCROLLED SIDE MENU (AFTER-SCROLL HEADER)
+/ SCROLLED SIDE MENU
 / ================================= */
 .scrolled-header {
   position: fixed;
@@ -229,37 +237,37 @@ header li a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
   z-index: 9999;
   opacity: 0;
   transform: translateX(100px);
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none; /* prevent interaction when hidden */
-  display: flex; /* always rendered */
+  pointer-events: none;
+  display: flex;
 }
 
 body.scrolledHeader .scrolled-header {
   opacity: 1;
   transform: translateX(0);
-  pointer-events: auto; /* allow clicks when visible */
+  pointer-events: auto;
 }
-  
+
 .scrolled-header a {
   margin: 15px 0;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
-  
+
 .scrolled-header a img {
   width: 40px;
   height: 40px;
   object-fit: contain;
 }
-  
+
 .scrolled-header a:hover {
   transform: scale(1.1);
   opacity: 0.8;
 }
-  
+
 .scrolled-header .top-icons,
 .scrolled-header .bottom-icons {
   display: flex;
@@ -267,9 +275,11 @@ body.scrolledHeader .scrolled-header {
   align-items: center;
   gap: 25px;
 }
-  
-.fullbody { margin: 0; }
-  
+
+.fullbody {
+  margin: 0;
+}
+
 /* =================================
 / POST GRID
 / ================================= */
@@ -281,32 +291,33 @@ body.scrolledHeader .scrolled-header {
   max-width: 1000px;
   margin: 0 auto;
 }
-  
+
 .post-card {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   height: 300px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 1.5em;
   color: #555;
+  text-align: center;
 }
-  
+
 /* =================================
 / ACCOUNT BUTTONS
 / ================================= */
 .account-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   gap: 20px;
 }
 
-  
 .account-buttons a {
   display: block;
   text-decoration: none;
@@ -323,13 +334,13 @@ body.scrolledHeader .scrolled-header {
   background-size: 200% auto;
   box-shadow: 0 0 20px #eee;
 }
-  
+
 .account-buttons a:hover {
   background-position: right center;
   transform: scale(1.05);
   color: #fff;
 }
-  
+
 /* =================================
 / LOGIN FORM
 / ================================= */
@@ -342,12 +353,12 @@ body.scrolledHeader .scrolled-header {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-  
+
 .error {
   color: #ff3333;
   margin-bottom: 1rem;
 }
-  
+
 .login-container form input,
 .login-container form button {
   display: block;
@@ -355,7 +366,7 @@ body.scrolledHeader .scrolled-header {
   max-width: 350px;
   margin: 10px auto;
 }
-  
+
 .login-container form input {
   text-align: center;
   padding: 15px;
@@ -363,12 +374,12 @@ body.scrolledHeader .scrolled-header {
   border-radius: 8px;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
-  
+
 .login-container form input:focus {
   border-color: #667eea;
   box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
 }
-  
+
 .login-container form button {
   background-color: #4da6ff;
   color: #fff;
@@ -378,7 +389,7 @@ body.scrolledHeader .scrolled-header {
   font-weight: bold;
   transition: background 0.3s, transform 0.2s;
 }
-  
+
 .login-container form button:hover {
   background-color: #3399ff;
   transform: scale(1.05);
