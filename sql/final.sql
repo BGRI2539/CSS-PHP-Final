@@ -1,5 +1,7 @@
 create database sitedata;
 
+use database sitedata;
+
 CREATE TABLE users (
     userId INT NOT NULL AUTO_INCREMENT,
     firstName VARCHAR(255),
@@ -14,7 +16,7 @@ CREATE TABLE posts (
     userId INT NOT NULL,
     title VARCHAR(255) NOT NULL,
     description VARCHAR(255),
-    image BLOB, 
+    image MEDIUMBLOB, 
     PRIMARY KEY (postId),
     FOREIGN KEY (userId) REFERENCES users(userId)
 );

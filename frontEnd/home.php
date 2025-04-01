@@ -52,7 +52,7 @@
     <div class="top-icons">
       <a href="home.php"><img src="../img/IconOnly_Transparent_NoBuffer.png" alt="Logo"></a>
       <a href="explore.php"><img src="../img/eye.png" alt="Explore"></a>
-      <a href="upload.php"><img src="../img/plus.png" alt="Upload"></a>
+      <a href="./create_post.php"><img src="../img/plus.png" alt="Upload"></a>
       <a href="favourites.php"><img src="../img/heart.png" alt="Favourites"></a>
     </div>
 

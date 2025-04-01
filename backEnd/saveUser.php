@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+    
     // Add the database connection
     require_once 'database.php';
 
@@ -37,7 +39,7 @@
     // If no errors occur
     if($ok){
 
-        // Securely hash the password using password_hash()
+        // Securely hash the password 
         $password = hash('sha512', $password);
 
         // Insert the user data into the database 
