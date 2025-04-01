@@ -48,19 +48,17 @@
     </div>
   </nav>
 
-  <section class="post-container">
-    <div class="post-card">Post #1</div>
-    <div class="post-card">Post #2</div>
-    <div class="post-card">Post #3</div>
-    <div class="post-card">Post #4</div>
-    <div class="post-card">Post #5</div>
-    <div class="post-card">Post #6</div>
-    <div class="post-card">Post #7</div>
-    <div class="post-card">Post #8</div>
-    <div class="post-card">Post #9</div>
-    <div class="post-card">Post #10</div>
-    <div class="post-card">Post #11</div>
-    <div class="post-card">Post #12</div>
-  </section>
+
+  <main class="explore-wrapper">
+    <h2 class="explore-title">Popular</h2>
+    <div class="gallery-grid">
+      <img src="../img/desks/desk1.jpg" alt="Gaming Desk Setup">
+      <img src="../img/desks/desk2.jpg" alt="Minimalist Desk">
+      <img src="../img/desks/desk3.jpg" alt="Luxury Office Desk">
+      <img src="../img/desks/desk4.jpg" alt="Productivity Setup">
+      <img src="../img/desks/desk5.jpg" alt="Cozy Corner Desk">
+      <img src="../img/desks/desk6.jpg" alt="Streaming Setup">
+    </div>
+  </main>
 </body>
 </html>
