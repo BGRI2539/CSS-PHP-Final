@@ -33,6 +33,7 @@ if (session_status() === PHP_SESSION_NONE) {
           <li><a href="myProfile.php">My Profile</a></li>
           <li><a href="create_post.php">Upload</a></li>
           <li><a href="manageAccount.php">Manage Account</a></li>
+          
           <li><a href="../backEnd/logout.php">Logout</a></li>
         </ul>
       </li>
