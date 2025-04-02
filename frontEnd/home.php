@@ -7,6 +7,8 @@
   $stmt = $conn->prepare($sql);
   $stmt->execute();
   $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  include 'navigation.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,28 +23,7 @@
 </head>
 <body class="home-page">
   <header>
-    <nav class="default-nav">
-      <div class="logo-container">
-        <a href="home.php">
-          <img src="../img/FullLogo_Transparent.png" alt="Header Logo" />
-        </a>
-      </div>
-      <ul class="header-right-menu">
-        <li><a href="home.php">Home</a></li>
-        <li><a href="explore.php">Explore</a></li>
-        <li>
-          <label for="account-burger" class="account-label">My Account</label>
-          <input id="account-burger" type="checkbox" />
-          <ul class="account-dropdown">
-            <li><a href="#">My Profile</a></li>
-            <li><a href="#">Favourites</a></li>
-            <li><a href="../frontEnd/create_post.php">Upload</a></li>
-            <li><a href="#">Manage Account</a></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+    
   </header>
 
   <nav class="scrolled-header">
