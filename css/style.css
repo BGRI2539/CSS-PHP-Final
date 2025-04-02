@@ -203,6 +203,30 @@ p, a, li, figcaption, label {
   font-family: "TT Limes Slab", sans-serif;
 }
 
+.view-more-wrapper {
+  margin-top: 20px;
+}
+
+.view-more-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.view-more-btn:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 10px 2px black;
+  text-shadow: none;
+}
 
 
 
@@ -687,7 +711,7 @@ body.scrolledHeader .scrolled-header {
 }
 
 /* =================================
-/ CREATE POST FORM
+/ CREATE POST PAGE STYLES
 / ================================= */
 .create-post-wrapper {
   max-width: 700px;
@@ -711,6 +735,10 @@ body.scrolledHeader .scrolled-header {
   width: 100%;
 }
 
+.create-post-wrapper .form-group {
+  margin-bottom: 25px;
+}
+
 .create-post-wrapper label {
   display: block;
   font-weight: bold;
@@ -719,13 +747,24 @@ body.scrolledHeader .scrolled-header {
 }
 
 .create-post-wrapper input[type="text"],
-.create-post-wrapper input[type="file"] {
+.create-post-wrapper input[type="file"],
+.create-post-wrapper select {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
   border: none;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1em;
+  background-color: white;
+  color: #333;
+  font-family: "TT Limes Slab", sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.create-post-wrapper select:focus,
+.create-post-wrapper input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
 }
 
 .create-post-wrapper input[type="submit"] {
@@ -739,14 +778,123 @@ body.scrolledHeader .scrolled-header {
   cursor: pointer;
   width: 100%;
   transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "TT Limes Slab", sans-serif;
 }
 
 .create-post-wrapper input[type="submit"]:hover {
   background-position: right center;
   transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* =================================
+/ POST CARD STYLES
+/ ================================= */
+/* ============================
+   Post Display Styling (home.php)
+=============================== */
 
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 40px;
+}
+
+/* Post Card */
+.post-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  min-height: 700px; /* Increase the height to allow vertical space */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.post-title {
+  font-family: 'Gemina', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.post-card-image {
+  width: 100%;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.post-card-image img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.post-description {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.like-button {
+  background: transparent;
+  color: red;
+  border: 2px solid red;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.like-button:hover {
+  background-color: red;
+  color: white;
+}
 
 /* Footer */
 
@@ -770,51 +918,3 @@ body.scrolledHeader .scrolled-header {
 }
 
 
-.posts-container {
-  width: 100%;
-  max-width: 1400px; /* Adjust if needed */
-  margin: 0 auto; /* Centers the container itself */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Post card styling */
-.post-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 40px auto; /* increased vertical margin to center the post on the page */
-  max-width: 1200px; /* increased maximum width for a larger post */
-  padding: 40px; /* increased padding for more spacious content */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect for post card */
-.post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Title styling within post card */
-.post-card h2 {
-  font-size: 32px; /* larger title font for better emphasis */
-  color: #333333;
-  margin-top: 0;
-}
-
-/* Post image container styling */
-.post-card-image {
-  width: 100%;
-  height: 450px; /* increased height for a larger image display */
-  overflow: hidden;
-  margin-top: 20px;
-}
-
-/* Ensures the image fills the container while maintaining aspect ratio */
-.post-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* crops image if necessary to fill the container */
-  display: block;
-}

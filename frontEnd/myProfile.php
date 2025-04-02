@@ -26,6 +26,7 @@ $posts = $postsStmt->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="UTF-8" />
   <title>My Profile</title>
   <link rel="stylesheet" href="../css/style.css" />
+  
 </head>
 <body>
   <main class="profile-wrapper">

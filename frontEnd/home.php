@@ -4,10 +4,14 @@
 
   // Fetch posts from the database, ordering by the most recent post
   $sql = "SELECT * FROM posts ORDER BY postId DESC";
-  $stmt = $conn->prepare($sql);
-  $stmt->execute();
-  $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+  $postsStmt = $conn->prepare("
+  SELECT posts.*, users.firstName, users.avatar 
+  FROM posts 
+  JOIN users ON posts.userId = users.userId
+  ORDER BY posts.postId DESC
+");
+$postsStmt->execute();
+$posts = $postsStmt->fetchAll(PDO::FETCH_ASSOC);
   include 'navigation.php'
 ?>
 <!DOCTYPE html>
@@ -26,39 +30,44 @@
     
   </header>
 
-  <nav class="scrolled-header">
-    <div class="top-icons">
-      <a href="home.php"><img src="../img/IconOnly_Transparent_NoBuffer.png" alt="Logo" /></a>
-      <a href="explore.php"><img src="../img/eye.png" alt="Explore" /></a>
-      <a href="../frontEnd/create_post.php"><img src="../img/plus.png" alt="Upload" /></a>
-      <a href="favourites.php"><img src="../img/heart.png" alt="Favourites" /></a>
-    </div>
-    <div class="bottom-icons">
-      <a href="My Profile.php"><img src="../img/profile.png" alt="My Profile" /></a>
-      <a href="#"><img src="../img/logout.png" alt="Logout" /></a>
-    </div>
-  </nav>
+
 
   <section class="post-container">
-    <?php if(count($posts) > 0): ?>
-      <?php foreach($posts as $post): ?>
-        <div class="post-card">
-          <h2><?php echo htmlspecialchars($post['title']); ?></h2>
-          <div class="post-card-image">
+  <?php if (count($posts) > 0): ?>
+    <?php foreach ($posts as $post): ?>
+      <div class="post-card">
+        
+        <div class="post-header">
+          <?php if (!empty($post['avatar'])): ?>
             <?php
-              if (!empty($post['image'])) {
-                $finfo = new finfo(FILEINFO_MIME_TYPE);
-                $mimeType = $finfo->buffer($post['image']);
-                $base64Image = base64_encode($post['image']);
-                echo '<img src="data:' . $mimeType . ';base64,' . $base64Image . '" alt="' . htmlspecialchars($post['title']) . '">';
-              }
+              $avatarMime = (new finfo(FILEINFO_MIME_TYPE))->buffer($post['avatar']);
+              $avatarBase64 = base64_encode($post['avatar']);
             ?>
-          </div>
+            <img class="avatar" src="data:<?= $avatarMime ?>;base64,<?= $avatarBase64 ?>" alt="User Avatar">
+          <?php endif; ?>
+          <span class="username"><?= htmlspecialchars($post['firstName']) ?></span>
         </div>
-      <?php endforeach; ?>
-    <?php else: ?>
-      <p>No posts found.</p>
-    <?php endif; ?>
-  </section>
+
+        <h2 class="post-title"><?= htmlspecialchars($post['title']) ?></h2>
+
+        <div class="post-card-image">
+          <?php if (!empty($post['image'])): ?>
+            <?php
+              $mimeType = (new finfo(FILEINFO_MIME_TYPE))->buffer($post['image']);
+              $base64Image = base64_encode($post['image']);
+            ?>
+            <img src="data:<?= $mimeType ?>;base64,<?= $base64Image ?>" alt="<?= htmlspecialchars($post['title']) ?>">
+          <?php endif; ?>
+        </div>
+
+        <p class="post-description">#<?= htmlspecialchars($post['description']) ?></p>
+
+        <button class="like-button">❤️ Like</button>
+      </div>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <p class="no-posts">No posts found.</p>
+  <?php endif; ?>
+</section>
 </body>
 </html>

@@ -3,6 +3,17 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="WireFrame - Share your ultimate desk setup!" />
+  <title>WireFrame - Welcome</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="../js/scripts.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
 <header>
   <nav class="default-nav">
     <div class="logo-container">
@@ -20,7 +31,6 @@ if (session_status() === PHP_SESSION_NONE) {
         <input id="account-burger" type="checkbox" />
         <ul class="account-dropdown">
           <li><a href="myProfile.php">My Profile</a></li>
-          <li><a href="../FrontEnd/admin.php">Favourites</a></li>
           <li><a href="create_post.php">Upload</a></li>
           <li><a href="manageAccount.php">Manage Account</a></li>
           <li><a href="../backEnd/logout.php">Logout</a></li>
@@ -35,7 +45,6 @@ if (session_status() === PHP_SESSION_NONE) {
     <a href="home.php"><img src="../img/IconOnly_Transparent_NoBuffer.png" alt="Logo" /></a>
     <a href="explore.php"><img src="../img/eye.png" alt="Explore" /></a>
     <a href="create_post.php"><img src="../img/plus.png" alt="Upload" /></a>
-    <a href="../backEnd/admin.php"><img src="../img/heart.png" alt="Favourites" /></a>
   </div>
   <div class="bottom-icons">
     <a href="myProfile.php"><img src="../img/profile.png" alt="My Profile" /></a>

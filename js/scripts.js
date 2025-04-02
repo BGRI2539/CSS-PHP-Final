@@ -6,7 +6,7 @@ $(window).on("scroll", function () {
         $("body").removeClass("fullbody");
     }
     if ($(this).scrollTop() > 250) {
-        $("body").addClass("scrolledHeader"); // <-- Add it to body
+        $("body").addClass("scrolledHeader");
     }
     else {
         $("body").removeClass("scrolledHeader");
