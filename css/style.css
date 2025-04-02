@@ -2,23 +2,24 @@
 / GENERAL STYLES
 / ================================= */
 body {
-  
   align-items: center;
   justify-content: center;
   height: 100vh;
   margin: 0;
   background: linear-gradient(to right, #F0C27B, #4B1248);
   font-size: 10px;
+  padding: 0;
+
 }
 
 .index-page {
   display: flex;
 }
 
-html{
+html {
   overflow-y: scroll;
 }
-  
+
 /* =================================
 / FONT IMPORTS
 / ================================= */
@@ -26,62 +27,27 @@ html{
   font-family: 'Gemina';
   src: url('../fonts/gemina.woff') format('truetype');
 }
-  
+
 @font-face {
   font-family: 'TT Limes Slab';
   src: url('../fonts/TTLimesSlab-Regular.otf') format('truetype');
 }
-  
+
 /* =================================
 / TYPOGRAPHY
 / ================================= */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Gemina', sans-serif;
 }
-  
+
 p, a, li, figcaption, label {
   font-family: "TT Limes Slab", sans-serif;
   font-size: 1.2em;
   text-decoration: none;
 }
 
-/* =================================
-/ EXPLORE PAGE STYLES
-/ ================================= */
-.explore-wrapper {
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.explore-title {
-  font-size: 3em;
-  color: white;
-  text-align: center;
-  margin-bottom: 30px;
-  font-family: 'Gemina', sans-serif;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
-
-  
 /* ================================= */
+/* INDEX PAGE STYLING */
 /* Left Section */
 /* ================================= */
 .left-mainpage {
@@ -93,19 +59,19 @@ p, a, li, figcaption, label {
   text-align: center;
   padding: 3px;
 }
-  
+
 .left-mainpage .logo {
   width: 40%;
   margin-bottom: 15px;
 }
-  
+
 .left-mainpage h2 {
   font-size: 8em;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: .02%;
 }
-  
+
 .left-mainpage p {
   font-size: 4em;
   color: hsl(0, 0%, 0%);
@@ -135,7 +101,7 @@ p, a, li, figcaption, label {
   bottom: 50%;
   rotate: -4deg;
 }
-  
+
 .iphone2 {
   width: 60%;
   position: absolute;
@@ -144,7 +110,104 @@ p, a, li, figcaption, label {
   z-index: 1;
   rotate: 4deg;
 }
-  
+
+
+/* ================================= */
+/* EXPLORE SECTION                  */
+/* ================================= */
+.masthead {
+  text-align: center;
+  position: relative;
+  background: linear-gradient(to right, #ffffff, #4B1248);
+  padding: 100px 0;
+  color: white;
+}
+
+.masthead h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  font-family: 'Gemina', sans-serif;
+}
+
+/* Arrow Animation */
+.arrow {
+  width: 30px;
+  height: 30px;
+  border-left: 5px solid white;
+  border-bottom: 5px solid white;
+  transform: rotate(-45deg);
+  margin: 20px auto;
+  animation: bounceArrow 1s infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.arrow:hover {
+  transform: rotate(-45deg) scale(1.2);
+}
+
+@keyframes bounceArrow {
+  0% { transform: translateY(0) rotate(-45deg); }
+  50% { transform: translateY(10px) rotate(-45deg); }
+  100% { transform: translateY(0) rotate(-45deg); }
+}
+
+/* Explore Section with Background */
+.explore-section {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 60px 20px 0;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+.overlay-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: 'Gemina', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Description Section */
+.description-section {
+  position: relative;
+  background-color: white;
+  color: #333;
+  padding: 160px 40px;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  width: 100vw; /* Full viewport width */
+  max-width: 90vw; /* Prevent overflow */
+  margin-top: -50px;
+  margin-bottom: -50px;
+  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+  overflow-x: hidden;
+}
+
+.description-section p {
+  margin: 0;
+  font-family: "TT Limes Slab", sans-serif;
+}
+
+
+
+
+
+
 
 /* =================================
 / HEADER NAVIGATION
@@ -227,9 +290,6 @@ p, a, li, figcaption, label {
   font-weight: bold;
 }
 
-
-
-  
 /* =================================
 / MY ACCOUNT DROPDOWN MENU
 / ================================= */
@@ -291,9 +351,9 @@ p, a, li, figcaption, label {
   padding: 10px 0;
   pointer-events: auto;
 }
-  
+
 /* =================================
-/ SCROLLED SIDE MENU (AFTER-SCROLL HEADER)
+/ SCROLLED SIDE MENU
 / ================================= */
 .scrolled-header {
   position: fixed;
@@ -306,37 +366,37 @@ p, a, li, figcaption, label {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
   z-index: 9999;
   opacity: 0;
   transform: translateX(100px);
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none; /* prevent interaction when hidden */
-  display: flex; /* always rendered */
+  pointer-events: none;
+  display: flex;
 }
 
 body.scrolledHeader .scrolled-header {
   opacity: 1;
   transform: translateX(0);
-  pointer-events: auto; /* allow clicks when visible */
+  pointer-events: auto;
 }
-  
+
 .scrolled-header a {
   margin: 15px 0;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
-  
+
 .scrolled-header a img {
   width: 40px;
   height: 40px;
   object-fit: contain;
 }
-  
+
 .scrolled-header a:hover {
   transform: scale(1.1);
   opacity: 0.8;
 }
-  
+
 .scrolled-header .top-icons,
 .scrolled-header .bottom-icons {
   display: flex;
@@ -344,9 +404,11 @@ body.scrolledHeader .scrolled-header {
   align-items: center;
   gap: 25px;
 }
-  
-.fullbody { margin: 0; }
-  
+
+.fullbody {
+  margin: 0;
+}
+
 /* =================================
 / POST GRID
 / ================================= */
@@ -358,32 +420,33 @@ body.scrolledHeader .scrolled-header {
   max-width: 1000px;
   margin: 0 auto;
 }
-  
+
 .post-card {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   height: 300px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 1.5em;
   color: #555;
+  text-align: center;
 }
-  
+
 /* =================================
 / ACCOUNT BUTTONS
 / ================================= */
 .account-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   gap: 20px;
 }
 
-  
 .account-buttons a {
   display: block;
   text-decoration: none;
@@ -400,13 +463,13 @@ body.scrolledHeader .scrolled-header {
   background-size: 200% auto;
   box-shadow: 0 0 20px #eee;
 }
-  
+
 .account-buttons a:hover {
   background-position: right center;
   transform: scale(1.05);
   color: #fff;
 }
-  
+
 /* =================================
 / LOGIN FORM
 / ================================= */
@@ -419,12 +482,12 @@ body.scrolledHeader .scrolled-header {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-  
+
 .error {
   color: #ff3333;
   margin-bottom: 1rem;
 }
-  
+
 .login-container form input,
 .login-container form button {
   display: block;
@@ -432,7 +495,7 @@ body.scrolledHeader .scrolled-header {
   max-width: 350px;
   margin: 10px auto;
 }
-  
+
 .login-container form input {
   text-align: center;
   padding: 15px;
@@ -440,12 +503,12 @@ body.scrolledHeader .scrolled-header {
   border-radius: 8px;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
-  
+
 .login-container form input:focus {
   border-color: #667eea;
   box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
 }
-  
+
 .login-container form button {
   background-color: #4da6ff;
   color: #fff;
@@ -455,7 +518,7 @@ body.scrolledHeader .scrolled-header {
   font-weight: bold;
   transition: background 0.3s, transform 0.2s;
 }
-  
+
 .login-container form button:hover {
   background-color: #3399ff;
   transform: scale(1.05);
@@ -465,87 +528,245 @@ body.scrolledHeader .scrolled-header {
   text-align: center;
 }
 
-.post-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  max-width: 1200px; /* Adjust as needed */
-  margin: 0 auto;    /* Center the grid in the viewport */
+/* =================================
+/ ACCOUNT MANAGEMENT FORM
+/ ================================= */
+.manageAccount{
+  background: #0e0e0e;
 }
 
-/* Individual post card styling */
-.post-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  font-family: Arial, sans-serif; /* Example font; adjust as needed */
+.manage-account-wrapper {
+  
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+  color: white;
+  font-size: 1.4em;
+}
+
+.manage-account-wrapper h2 {
+  text-align: center;
+  font-family: 'Gemina', sans-serif;
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+
+.manage-account-wrapper form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  background-color: rgba(215, 215, 215, 0.5);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Header at the top of the post card */
-.post-card-header {
-  display: flex;
-  align-items: center;
-  padding: 10px;
+.manage-account-wrapper input[type="text"],
+.manage-account-wrapper input[type="email"],
+.manage-account-wrapper input[type="password"] {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* User avatar (replace with your own user images) */
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+.manage-account-wrapper input:focus {
+  outline: none;
+  border-color: #4da6ff;
+  box-shadow: 0 0 8px rgba(77, 166, 255, 0.5);
 }
 
-/* Username next to the avatar */
-.username {
+.manage-account-wrapper button[type="submit"] {
+  background-color: #4da6ff;
+  color: white;
+  border:#ccc;
+  border-radius: 8px;
+  font-size: 1em;
   font-weight: bold;
-  margin-left: 10px;
-}
-
-/* The "..." menu icon to the right */
-.more-options {
-  margin-left: auto;
+  padding: 12px 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
   cursor: pointer;
 }
 
-/* Image container with a fixed height */
-.post-card-image {
-  width: 100%;
-  height: 300px; /* Adjust this height as needed */
-  overflow: hidden;
+
+.manage-account-wrapper .delete-account-btn {
+  background-color: #ff4d4d;
+  margin-top: 20px;
 }
 
-/* The image fills the container, keeping its aspect ratio */
-.post-card-image img {
+.manage-account-wrapper .delete-account-btn:hover {
+  background-color: #e63c3c;
+}
+
+.manage-account-wrapper .status-message {
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}
+
+
+
+/* =================================
+/ PROFILE PAGE STYLES
+/ ================================= */
+.profile-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.profile-header {
+  font-size: 3rem;
+  font-family: 'Gemina', sans-serif;
+  margin-bottom: 10px;
+}
+
+.profile-subtext {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.user-info-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin-bottom: 40px;
+}
+
+.user-info-box strong {
+  font-weight: bold;
+  color: #fff;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.post-card {
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.no-posts {
+  color: #fff;
+  font-style: italic;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.edit-profile-btn {
+  background-color: #00d2ff;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: 20px;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.edit-profile-btn:hover {
+  background-color: #3a7bd5;
+  transform: scale(1.05);
+}
+
+/* =================================
+/ CREATE POST FORM
+/ ================================= */
+.create-post-wrapper {
+  max-width: 700px;
+  margin: 100px auto;
+  padding: 40px;
+  background: linear-gradient(to right, #F0C27B, #4B1248);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: "TT Limes Slab", sans-serif;
+}
+
+.create-post-wrapper h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-family: 'Gemina', sans-serif;
+}
+
+.create-post-wrapper form {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+}
+
+.create-post-wrapper label {
   display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2em;
 }
 
-
-/* Actions row at the bottom of the card */
-.post-card-actions {
-  display: flex;
-  align-items: center;
-  padding: 8px 10px;
+.create-post-wrapper input[type="text"],
+.create-post-wrapper input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 1em;
 }
 
-/* Icons in the actions row */
-.action-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
+.create-post-wrapper input[type="submit"] {
+  background: linear-gradient(to right, #00d2ff, #3a7bd5);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Bookmark icon aligns to the right */
-.action-icon.bookmark {
-  margin-left: auto;
+.create-post-wrapper input[type="submit"]:hover {
+  background-position: right center;
+  transform: scale(1.05);
 }
+
+
+
+/* Footer */
+
+.site-footer {
+  background-color: #999999;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: "TT Limes Slab", sans-serif;
+  margin-top: 50px;
+}
+
+.site-footer .footer-logo {
+  max-height: 80px;
+  margin-bottom: 20px;
+}
+
+.site-footer p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
 

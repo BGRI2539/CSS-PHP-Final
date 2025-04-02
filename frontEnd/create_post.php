@@ -1,30 +1,37 @@
+<?php include 'navigation.php'; ?>
+
 <?php
-// Include the processing logic at the top of the file
 require_once '../backEnd/post.php'; 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Create a New Post</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
+<div class="create-post-wrapper">
     <h1>Create a New Post</h1>
     <form action="create_post.php" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="title">Post Title:</label><br>
+        <div class="form-group">
+            <label for="title">Post Title:</label>
             <input type="text" id="title" name="title" required>
         </div>
-        <br>
-        <div>
-            <label for="image">Upload Image:</label><br>
+
+        <div class="form-group">
+            <label for="image">Upload Image:</label>
             <input type="file" id="image" name="image" accept="image/*" required>
         </div>
-        <br>
-        <div>
+
+        <div class="form-group">
             <input type="submit" value="Submit Post">
         </div>
     </form>
+</div>
+
+<?php include 'footer.php'; ?>
+
 </body>
 </html>
