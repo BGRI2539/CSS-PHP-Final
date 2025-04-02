@@ -33,9 +33,12 @@ if (session_status() === PHP_SESSION_NONE) {
           <li><a href="myProfile.php">My Profile</a></li>
           <li><a href="create_post.php">Upload</a></li>
           <li><a href="manageAccount.php">Manage Account</a></li>
-          
+          <?php if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin'): ?>
+            <li><a href="admin.php">Admin Panel</a></li>
+          <?php endif; ?>
           <li><a href="../backEnd/logout.php">Logout</a></li>
         </ul>
+
       </li>
     </ul>
   </nav>

@@ -44,14 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $imageData = file_get_contents($_FILES['image']['tmp_name']);
 
-        $description = $_POST['description'];
-
-        $sql = "INSERT INTO posts (userId, title, image, description) VALUES (:userId, :title, :image, :description)";
+        $sql = "INSERT INTO posts (userId, title, image) VALUES (:userId, :title, :image)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
         $stmt->bindParam(':title', $title, PDO::PARAM_STR);
         $stmt->bindParam(':image', $imageData, PDO::PARAM_LOB);
-        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
             header("Location: ../frontEnd/home.php");

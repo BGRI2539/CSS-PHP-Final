@@ -1,8 +1,10 @@
 <?php
-session_start();
-require_once '../backEnd/database.php';
+  session_start();
+  require_once '../backEnd/database.php';
 
-$postsStmt = $conn->prepare("
+  // Fetch posts from the database, ordering by the most recent post
+  $sql = "SELECT * FROM posts ORDER BY postId DESC";
+  $postsStmt = $conn->prepare("
   SELECT posts.*, users.firstName, users.avatar 
   FROM posts 
   JOIN users ON posts.userId = users.userId
@@ -10,8 +12,7 @@ $postsStmt = $conn->prepare("
 ");
 $postsStmt->execute();
 $posts = $postsStmt->fetchAll(PDO::FETCH_ASSOC);
-
-include 'navigation.php';
+  include 'navigation.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,30 +20,23 @@ include 'navigation.php';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="WireFrame - Share your ultimate desk setup!" />
-  <title>WireFrame - Home</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <title>WireFrame - Welcome</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="../js/scripts.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="home-page">
+  <header>
+    
+  </header>
 
-<nav class="scrolled-header">
-  <div class="top-icons">
-    <a href="home.php"><img src="../img/IconOnly_Transparent_NoBuffer.png" alt="Logo" /></a>
-    <a href="explore.php"><img src="../img/eye.png" alt="Explore" /></a>
-    <a href="create_post.php"><img src="../img/plus.png" alt="Upload" /></a>
-    <a href="favourites.php"><img src="../img/heart.png" alt="Favourites" /></a>
-  </div>
-  <div class="bottom-icons">
-    <a href="myProfile.php"><img src="../img/profile.png" alt="My Profile" /></a>
-    <a href="../backEnd/logout.php"><img src="../img/logout.png" alt="Logout" /></a>
-  </div>
-</nav>
 
-<section class="post-container">
+
+  <section class="post-container">
   <?php if (count($posts) > 0): ?>
     <?php foreach ($posts as $post): ?>
       <div class="post-card">
+        
         <div class="post-header">
           <?php if (!empty($post['avatar'])): ?>
             <?php
@@ -66,25 +60,14 @@ include 'navigation.php';
           <?php endif; ?>
         </div>
 
-        <?php
-          $deskDescriptions = [
-            'gaming-desk' => 'Gaming Desk',
-            'minimalist-desk' => 'Minimalist Desk',
-            'luxury-desk' => 'Luxury Office Desk',
-            'productivity-desk' => 'Productivity Desk',
-            'corner-desk' => 'Cozy Corner Desk',
-            'streaming-desk' => 'Streaming Desk'
-          ];
-          $descKey = $post['description'];
-          $descLabel = $deskDescriptions[$descKey] ?? $descKey;
-        ?>
-        <p class="post-description">#<?= htmlspecialchars($descLabel) ?></p>
+        <p class="post-description">#<?= htmlspecialchars($post['description']) ?></p>
+
+        <button class="like-button">❤️ Like</button>
       </div>
     <?php endforeach; ?>
   <?php else: ?>
     <p class="no-posts">No posts found.</p>
   <?php endif; ?>
 </section>
-
 </body>
 </html>
