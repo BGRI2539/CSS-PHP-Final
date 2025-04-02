@@ -26,6 +26,18 @@ require_once '../backEnd/post.php';
         </div>
 
         <div class="form-group">
+            <label for="description">Description: </label>
+            <select name="description" id="description">
+                <option value="gaming-desk">Gaming Desk</option>
+                <option value="minimalist-desk">Minimalist Desk</option>
+                <option value="luxury-desk">Luxury Office Desk</option>
+                <option value="productivity-desk">Productivity Desk</option>
+                <option value="corner-desk">Cozy Corner Desk</option>
+                <option value="streaming-desk">Streaming Desk</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <input type="submit" value="Submit Post">
         </div>
     </form>

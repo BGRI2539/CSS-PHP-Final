@@ -770,14 +770,23 @@ body.scrolledHeader .scrolled-header {
 }
 
 
+.posts-container {
+  width: 100%;
+  max-width: 1400px; /* Adjust if needed */
+  margin: 0 auto; /* Centers the container itself */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Post card styling */
 .post-card {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 800px;
-  padding: 20px;
+  margin: 40px auto; /* increased vertical margin to center the post on the page */
+  max-width: 1200px; /* increased maximum width for a larger post */
+  padding: 40px; /* increased padding for more spacious content */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -789,7 +798,7 @@ body.scrolledHeader .scrolled-header {
 
 /* Title styling within post card */
 .post-card h2 {
-  font-size: 24px;
+  font-size: 32px; /* larger title font for better emphasis */
   color: #333333;
   margin-top: 0;
 }
@@ -797,15 +806,15 @@ body.scrolledHeader .scrolled-header {
 /* Post image container styling */
 .post-card-image {
   width: 100%;
-  height: 250px; /* Adjust height as needed */
+  height: 450px; /* increased height for a larger image display */
   overflow: hidden;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 /* Ensures the image fills the container while maintaining aspect ratio */
 .post-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Crops image if necessary */
+  object-fit: cover; /* crops image if necessary to fill the container */
   display: block;
 }
