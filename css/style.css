@@ -51,31 +51,28 @@ p, a, li, figcaption, label {
 /* Left Section */
 /* ================================= */
 .left-mainpage {
-  flex: 1;
+  flex: 0.8; /* Smaller width */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 3px;
-}
-
-.left-mainpage .logo {
-  width: 40%;
-  margin-bottom: 15px;
+  padding: 20px;
 }
 
 .left-mainpage h2 {
-  font-size: 8em;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: .02%;
+  font-size: 4em;
+  margin-bottom: 0.5em;
 }
 
 .left-mainpage p {
-  font-size: 4em;
-  color: hsl(0, 0%, 0%);
-  margin-bottom: 2.2%;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+}
+
+.left-mainpage .logo {
+  width: 120px;
+  margin-bottom: 20px;
 }
 
 /* ================================= */
@@ -109,6 +106,40 @@ p, a, li, figcaption, label {
   right: 15%;
   z-index: 1;
   rotate: 4deg;
+}
+
+.account-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.account-form input,
+.account-form button {
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: none;
+}
+
+.account-form button {
+  background: linear-gradient(to right, #00d2ff, #3a7bd5);
+  background-size: 200% auto;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.account-form button:hover {
+  background-position: right center;
+  transform: scale(1.05);
 }
 
 
@@ -552,167 +583,260 @@ body.scrolledHeader .scrolled-header {
   text-align: center;
 }
 
-/* =================================
-/ ACCOUNT MANAGEMENT FORM
-/ ================================= */
-.manageAccount{
-  background: #0e0e0e;
-}
+/* ===============================
+   ACCOUNT MANAGEMENT FORM - ENHANCED
+   =============================== */
 
-.manage-account-wrapper {
+   .manageAccount {
+    background: linear-gradient(to right, #F0C27B, #4B1248);
+    min-height: 100vh;
+    font-family: 'Gemina', sans-serif;
+  }
   
-  padding: 40px;
-  max-width: 700px;
-  margin: 0 auto;
-  color: white;
-  font-size: 1.4em;
-}
-
-.manage-account-wrapper h2 {
-  text-align: center;
-  font-family: 'Gemina', sans-serif;
-  font-size: 3em;
-  margin-bottom: 30px;
-}
-
-.manage-account-wrapper form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background-color: rgba(215, 215, 215, 0.5);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.manage-account-wrapper input[type="text"],
-.manage-account-wrapper input[type="email"],
-.manage-account-wrapper input[type="password"] {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1em;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.manage-account-wrapper input:focus {
-  outline: none;
-  border-color: #4da6ff;
-  box-shadow: 0 0 8px rgba(77, 166, 255, 0.5);
-}
-
-.manage-account-wrapper button[type="submit"] {
-  background-color: #4da6ff;
-  color: white;
-  border:#ccc;
-  border-radius: 8px;
-  font-size: 1em;
-  font-weight: bold;
-  padding: 12px 20px;
-  transition: background 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
-}
-
-
-.manage-account-wrapper .delete-account-btn {
-  background-color: #ff4d4d;
-  margin-top: 20px;
-}
-
-.manage-account-wrapper .delete-account-btn:hover {
-  background-color: #e63c3c;
-}
-
-.manage-account-wrapper .status-message {
-  text-align: center;
-  color: #ffffff;
-  font-weight: bold;
-  margin-bottom: 20px;
-  font-size: 1.1em;
-}
-
-
+  .manage-account-wrapper {
+    padding: 50px;
+    max-width: 700px;
+    margin: 80px auto;
+    color: white;
+    font-size: 1.2em;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+  }
+  
+  .manage-account-wrapper h2 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+  }
+  
+  .manage-account-wrapper form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Input fields */
+  .manage-account-wrapper input[type="text"],
+  .manage-account-wrapper input[type="email"],
+  .manage-account-wrapper input[type="password"] {
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    width: 100%;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+  }
+  
+  .manage-account-wrapper input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+  }
+  
+  /* Gradient button style */
+  .manage-account-wrapper button[type="submit"] {
+    background: linear-gradient(to right, #00d2ff, #3a7bd5);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 15px 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
+  
+  .manage-account-wrapper button[type="submit"]:hover {
+    transform: scale(1.05);
+    background-position: right center;
+  }
+  
+  /* Delete button style */
+  .manage-account-wrapper .delete-account-btn {
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .manage-account-wrapper .delete-account-btn:hover {
+    transform: scale(1.05);
+    background-position: right center;
+  }
+  
+  /* Status message */
+  .manage-account-wrapper .status-message {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background: rgba(0, 255, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
 
 /* =================================
 / PROFILE PAGE STYLES
 / ================================= */
-.profile-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  text-align: center;
-  color: white;
-}
-
-.profile-header {
-  font-size: 3rem;
-  font-family: 'Gemina', sans-serif;
-  margin-bottom: 10px;
-}
-
-.profile-subtext {
-  font-size: 1.4rem;
+.profile-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   margin-bottom: 20px;
 }
 
-.user-info-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  margin-bottom: 40px;
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.user-info-box strong {
-  font-weight: bold;
-  color: #fff;
+.profile-header h2 {
+  font-size: 2.8rem;
+  font-family: 'Gemina', sans-serif;
+  margin: 0;
+  color: white;
+}
+
+.profile-posts h3 {
+  font-size: 2rem;
+  color: white;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-family: 'Gemina', sans-serif;
 }
 
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding-top: 20px;
 }
 
 .post-card {
-  background-color: #fff;
-  color: #333;
+  background-color: #ffffff;
+  border-radius: 12px;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  font-size: 1.1rem;
-  line-height: 1.5;
-}
-
-.no-posts {
-  color: #fff;
-  font-style: italic;
-  margin-top: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
   text-align: center;
 }
 
+.post-title {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.post-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.post-description {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.no-posts {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #ccc;
+  text-align: center;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.user-info-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px 40px;
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.user-info-box p {
+  margin: 10px 0;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  margin-bottom: 10px;
+}
+
+.profile-posts h3 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+  font-family: 'Gemina', sans-serif;
+  text-transform: uppercase;
+}
+
 .edit-profile-btn {
-  background-color: #00d2ff;
+  display: inline-block;
+  background: linear-gradient(45deg, #00d2ff, #3a7bd5);
   color: white;
   padding: 12px 30px;
   border: none;
   border-radius: 30px;
   font-weight: bold;
-  cursor: pointer;
   text-transform: uppercase;
   margin-top: 20px;
-  transition: background 0.3s ease, transform 0.2s;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .edit-profile-btn:hover {
-  background-color: #3a7bd5;
+  background: white;
+  color: #3a7bd5;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
   transform: scale(1.05);
 }
 
 /* =================================
 / CREATE POST PAGE STYLES
 / ================================= */
+
 .create-post-wrapper {
   max-width: 700px;
   margin: 100px auto;
@@ -735,20 +859,20 @@ body.scrolledHeader .scrolled-header {
   width: 100%;
 }
 
-.create-post-wrapper .form-group {
+.form-group {
   margin-bottom: 25px;
 }
 
-.create-post-wrapper label {
+.form-group label {
   display: block;
   font-weight: bold;
-  margin-bottom: 10px;
-  font-size: 1.2em;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
 }
 
-.create-post-wrapper input[type="text"],
-.create-post-wrapper input[type="file"],
-.create-post-wrapper select {
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group select {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
@@ -761,13 +885,14 @@ body.scrolledHeader .scrolled-header {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.create-post-wrapper select:focus,
-.create-post-wrapper input:focus {
+.form-group select:focus,
+.form-group input:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
 }
 
-.create-post-wrapper input[type="submit"] {
+.form-group button[type="submit"],
+.form-group input[type="submit"] {
   background: linear-gradient(to right, #00d2ff, #3a7bd5);
   color: white;
   padding: 15px 30px;
@@ -783,7 +908,7 @@ body.scrolledHeader .scrolled-header {
   font-family: "TT Limes Slab", sans-serif;
 }
 
-.create-post-wrapper input[type="submit"]:hover {
+.form-group button:hover {
   background-position: right center;
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -792,9 +917,7 @@ body.scrolledHeader .scrolled-header {
 /* =================================
 / POST CARD STYLES
 / ================================= */
-/* ============================
-   Post Display Styling (home.php)
-=============================== */
+
 
 .post-container {
   display: flex;

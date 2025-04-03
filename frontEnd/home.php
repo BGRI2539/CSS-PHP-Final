@@ -62,7 +62,6 @@ $posts = $postsStmt->fetchAll(PDO::FETCH_ASSOC);
 
         <p class="post-description">#<?= htmlspecialchars($post['description']) ?></p>
 
-        <button class="like-button">❤️ Like</button>
       </div>
     <?php endforeach; ?>
   <?php else: ?>

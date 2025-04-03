@@ -21,6 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
   $updateQuery = $conn->prepare("UPDATE users SET firstName = ?, email = ?, username = ?, password = ? WHERE userId = ?");
   $updateQuery->execute([$firstName, $email, $username, $password, $userId]);
 
+  $_SESSION['firstName'] = $firstName;
+
   $msg = "Account updated successfully!";
 }
 
