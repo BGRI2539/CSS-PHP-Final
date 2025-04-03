@@ -17,7 +17,7 @@ $stmt->execute();
 if ($stmt->rowCount() == 1) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $_SESSION['userId'] = $row['userId'];
-    $_SESSION['firstName'] = $row['firstName']; // ✅ store for navigation
+    $_SESSION['firstName'] = $row['firstName']; 
 
     header('Location: ../frontEnd/home.php');
     exit;

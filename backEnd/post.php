@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $userId = $_SESSION['userId'];
 
-        // OPTIONAL: Confirm this userId exists in DB to avoid FK error
         $checkStmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE userId = ?");
         $checkStmt->execute([$userId]);
         if ($checkStmt->fetchColumn() == 0) {

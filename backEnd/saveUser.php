@@ -2,7 +2,7 @@
 
     session_start();
 
-    $_SESSION['username'] = $username; // e.g., "admin" if that's what was entered
+    $_SESSION['username'] = $username; 
     
     // Add the database connection
     require_once 'database.php';
@@ -44,9 +44,7 @@
         // Securely hash the password 
         $password = hash('sha512', $password);
 
-        // Check if a profile picture (avatar) was uploaded
         if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] == 0) {
-            // Optionally validate file type (allow only JPEG, PNG, or GIF)
             $allowedTypes = array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF);
             $detectedType = exif_imagetype($_FILES['profilePicture']['tmp_name']);
             if (in_array($detectedType, $allowedTypes)) {
@@ -58,7 +56,6 @@
             $avatar = null;
         }
 
-        // If an avatar was provided, include it in the INSERT query
         if($avatar !== null) {
             $avatar_escaped = $conn->quote($avatar);
             $sql = "INSERT INTO users (firstName, email, username, password, avatar) VALUES ('$firstName', '$email', '$username', '$password', $avatar_escaped)";

@@ -3,7 +3,6 @@ session_start();
 
 include '../frontEnd/navigation.php';
 
-// For testing purposes only: manually set the session username
 $_SESSION['username'] = 'admin';
 
 require_once '../backEnd/database.php';
@@ -28,7 +27,6 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// Fetch users (only the fields we need for display)
 $sql = "SELECT userId, firstName, email, avatar FROM users";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
