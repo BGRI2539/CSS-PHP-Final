@@ -1,6 +1,8 @@
 <?php
 
     session_start();
+
+    $_SESSION['username'] = $username; // e.g., "admin" if that's what was entered
     
     // Add the database connection
     require_once 'database.php';
